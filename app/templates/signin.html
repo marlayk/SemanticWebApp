@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+ 
+{% block content %}
+
+<div class="span8 offset2">
+  <div>
+   <h2>Sign In</h2>
+  </div>
+
+   
+  <form action="{{ url_for('signin') }}" class="form-horizontal" method=post>
+    {{ form.hidden_tag() }}
+
+
+  <div class="form-group {% if form.email.errors %} has-error {% endif %}"> 
+    {{ form.email.label(class="col-sm-4")}}
+    <div class="col-sm-10"> 
+    {{ form.email(placeholder="E.g. brucewayne@wayne.com", class="form-control") }}
+    </div>
+    <p class="col-sm-5 help-block">
+    {{ form.email.errors[0] }}
+  </div>
+
+
+  <div class="form-group {% if form.password.errors %} has-error {% endif %}">
+    {{form.password.label(class="col-sm-4")}}
+    <div class="col-sm-10">
+    {{ form.password(placeholder="Min. 6 Characters", class="form-control") }}
+    </div>
+    <p class="col-sm-5 help-block">
+    {{ form.password.errors[0] }}
+  </div>
+
+ 
+<div>
+<button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+</div>
+</form>
+
+
+<div style="margin-top: 10px">
+<a href="{{ url_for('login')}}">
+<img src="/static/img/login.png" width="202" height="48">
+</a>
+</div>
+
+<div>
+<a href="{{ url_for('glogin')}}">
+<img src="/static/img/glogin.png" width="208" height="48">
+</a>
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+     

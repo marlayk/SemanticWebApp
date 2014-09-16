@@ -1,0 +1,61 @@
+
+<script src="https://www.youtube.com/iframe_api" type='text/javascript'></script>
+
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-medium search-query">
+			<label for='messageVenue'>Search for an artist</label>
+    		<input type="text" class=" form-control" placeholder="Search" id="artist">
+		</div>
+		<button class="btn btn-primary  " value="Search" onclick="getartists()"> Search </button>
+	</div>
+</div>
+
+<div class="row div_space">
+    <div class="col-md-6">
+      <div class="panel">
+      	<div class="panel-heading"> 
+    		<h2 class="panel-title">Artists</h2>
+  		</div>
+        <div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id='artist-list'>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+		<div class="panel panel-primary">
+      		<div class="panel-heading"> 
+    			<h2 class="panel-title">Description</h2>
+  			</div>
+          	<div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id='artistinfo'>
+          	</div>
+      	</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+    	<div class="panel">
+    		<div class="panel-heading"> 
+    			<h2 class="panel-title">Songs</h2>
+  			</div>
+        	<div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id='song-list'>
+        	</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+    	<div class="panel panel-info">
+    		<div class="panel-heading"> 
+    			<h2 class="panel-title">Video</h2>
+  			</div>
+        	<div class="panel-body" style="overflow:auto; height: 20em;" id='player'>
+        	</div>
+    	</div>
+    </div>  
+</div>
+
+
+
+    

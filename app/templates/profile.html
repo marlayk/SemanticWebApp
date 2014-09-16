@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script> $(function(){ 
+  $("#location").geocomplete(
+    { details: "form" ,
+    types:["(cities)"]
+      }); 
+  }); 
+</script>
+
+<script type="text/javascript">
+var lo = '{{  location }}';
+
+  if (lo=="Undefined") {
+  $(window).load(function(){
+
+        $('#myModal').modal('show');
+    });
+}
+</script>
+
+<style type="text/css">
+  .pac-container{z-index: 2000 !important;}
+</style>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+      <div>
+        <p class="text-left text-success">
+        Signed in as <a href="#" class="navbar-link">{{ username }}</a>
+        </p>
+        {%if oauthType== "facebook" %}
+          <div style="text-align:center;"><img src="https://graph.facebook.com/{{userid}}/picture?type=large"></div>
+        {%endif%}
+      </div>
+
+      <div>
+        <p class="text-left"> <strong >Your current Location is:<span style="color:#0099FF" id ='loc' >{{ location }}</span></strong></p>
+      </div> 
+    <div class="btn-group">
+      <div>
+        <!-- Button trigger modal -->
+        <button class="save_button btn btn-primary div_space" data-toggle="modal" data-target="#myModal">Change Location</button>
+      </div>
+
+      <div>
+        <!-- Button trigger modal -->
+        <button class="save_button btn btn-primary div_space" onclick="searchArtists()">Browse Artist</button>
+      </div>
+
+      <div>
+        <!-- Button trigger modal -->
+        <button class="save_button btn btn-primary div_space" onclick="browseEvent()">Upcoming Event</button>
+      </div>
+
+      <div>
+        <!-- Button trigger modal -->
+        <button class="save_button btn btn-primary div_space" onclick="demandEvent()">Demand Event</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+    <div class="span10" id="BodyContent">
+      <!--Body content-->
+  
+    <h1>Welcome {{ username }} </h1>
+
+      <div class="row div_space">
+        <div class="col-md-12">
+          <div class="panel">
+            <div class="panel-heading"> 
+              <h2 class="panel-title">Your Favorite Artists</h2>
+            </div>
+            <div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id = 'favouriteArtist'>
+            </div>
+            <script type="text/javascript">
+              favouriteArtist();
+            </script>
+        </div>
+      </div>
+    </div>
+
+  <div class="row div_space">
+    <div class="col-lg-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> 
+          <h2 class="panel-title">My Events</h2>
+        </div>
+        <div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id = 'myEvents'>
+        </div>
+        <script type="text/javascript">
+        getmyEvents();
+        </script>
+      </div>  
+    </div>
+
+ 
+    <div class="col-lg-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> 
+          <h2 class="panel-title">Proposed Events</h2>
+        </div>
+        <div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id = 'interestingEvents'>
+        </div>
+        <script type="text/javascript">
+        getinterestingEvents();
+        </script> 
+        </div>  
+      </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Change your Current Location</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" class="form-control" id='location'>
+          <input name="lat"  type="hidden" class="form-control" id="lat">
+          <input name="lng"  type="hidden" class="form-control" id="lng">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" onclick="changeLocation()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="static/js/maps.js"></script>
+
+{% endblock %}

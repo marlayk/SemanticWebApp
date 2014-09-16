@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask App</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Fascinate' rel='stylesheet' type='text/css'>   
+  </head>
+
+  <body>
+
+  <div id="wrap">
+      {% include 'header.html' %}
+    <div class="container">
+          {% block content %}{% endblock %}
+    </div> <!-- container-fluid -->
+
+    <div id="push"></div>
+  </div> <!-- wrap id -->
+
+  {% include 'footer.html' %}
+
+  <!-- jQuery via Google + local fallback, see h5bp.com -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="static/js/jquery-1.8.0.min.js"><\/script>')</script>
+  <script src="/static/js/bootstrap.js"></script>
+
+
+    <header>
+      <div class="container">
+        <h1 class="logo">Flask App</h1>
+        <strong><nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          {% if 'email' in session %}
+          <li><a href="{{ url_for('profile') }}">Profile</a></li>
+          <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+          {% else %}
+          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+          {% endif %}
+        </ul>
+        </nav></strong>
+      </div>
+    </header>
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

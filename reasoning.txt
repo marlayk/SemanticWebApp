@@ -1,0 +1,15 @@
+<http://example/hasCreatedByUserid> rdfs:subPropertyOf <http://example/hasbeenVoted>.
+
+
+
+<http://example/demandedEvent>
+  a owl:Class ;
+   owl:equivalentClass
+    [ a owl:Restriction ;
+      owl:onProperty <http://example/hasSource> ;
+      owl:hasValue "manually"
+    ].
+
+<http://example/hasArtistId> owl:inverseOf <http://example/isArtistOf>.
+
+

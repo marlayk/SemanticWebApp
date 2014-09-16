@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+  
+{% block content %}
+
+<div class="span8 offset2">
+  <div>
+	<h2>About</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+  	  <div class="overview">
+  		<h3>Our developers</h3>
+  		<p>This is an About page for the Intro to Flask article. 
+  					Don't I look good? Oh stop, you're making me blush.</p>
+  	  </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 50px"> 
+	<div class="col-md-3 col-sm-6 text-center">
+		<figure class="user">
+		<div class="user-avatar">
+			<img class="img-responsive img-circle"src="static/img/nikos.jpg" alt="User">
+		</div>
+		<div style="margin-top: 35px">
+		<h2>Nikos Sarris</h2>
+		<p class="lead">Software Developer</p>
+		</div>
+		</figure>
+	</div>
+
+	<div class="col-md-3 col-sm-6 text-center">
+		<figure class="user">
+		<div class="user-avatar">
+			<img class="img-responsive img-circle"src="static/img/stavros.jpg" alt="User">
+		</div>
+		<h3>Stavros Champilomatis</h3>
+		<p class="lead">Software Developer</p>
+		</figure>
+	</div>
+
+	<div class="col-md-3 col-sm-6 text-center">
+		<figure class="user">
+		<div class="user-avatar">
+			<img class="img-responsive img-circle"src="static/img/photo.jpg" alt="User">
+		</div>
+		<h3>Yiota Kontzopoulou</h2>
+		<p class="lead">Software Developer</p>
+		</figure>
+	</div>
+  </div>
+
+
+{% endblock %}

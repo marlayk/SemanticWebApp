@@ -1,0 +1,56 @@
+<script type="text/javascript">
+	initialize();
+</script>
+
+
+
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-medium search-query">
+			<label for='messageVenue'>Search for an artist</label>
+    		<input type="text" class=" form-control" placeholder="Search" id="artist">
+		</div>
+		<button class="btn btn-primary  " value="Search" onclick="fetchArtist()"> Search </button>
+	</div>	
+</div>
+
+<div class="row div_space">
+    <div class="col-md-4">
+      <div class="panel">
+      	<div class="panel-heading"> 
+    		<h2 class="panel-title">Artists</h2>
+  		</div>
+        <div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id='artist_suggestion'>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+		<div class="panel">
+      		<div class="panel-heading"> 
+    			<h2 class="panel-title">Events</h2>
+  			</div>
+          	<div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id = 'event_list'>
+          	</div>
+      	</div>
+	</div>
+
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+      		<div class="panel-heading"> 
+    			<h2 class="panel-title">Event Description</h2>
+  			</div>
+          	<div class="panel-body" style="scroll; both; overflow:auto; height: 20em;" id = 'event_description'>
+          	</div>
+      	</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div id="map-canvas"></div>	
+	</div>
+</div> 
+
+
